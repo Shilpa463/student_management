@@ -2,7 +2,11 @@ import streamlit as st
 import requests
 import pandas as pd
 
-API_URL = "http://127.0.0.1:8000"
+try:
+    API_URL = st.secrets["API_URL"]
+except Exception:
+    API_URL = "http://127.0.0.1:8000"
+
 
 st.set_page_config(
     page_title="Student Management System",
